@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Saag-IA</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./static/script_model.js" defer></script>  
+    <!-- For the Code font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' />
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" type="text/css" href="./static/saagie-ui.css">
+    <link rel="stylesheet" type="text/css" href="./static/style_model.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/python-repl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <!-- <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button> -->
+    <div class="chatbot">
+      <header>
+        <!--<h2>Saag-IA</h2>-->
+        <div class="sui-a-text as--xxl">Saag-IA</div>
+        <!--<span class="close-btn material-symbols-outlined">close</span>-->
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <!--<span class="material-symbols-outlined">smart_toy</span>-->
+          <span>
+            <img class="avatar" src="static/saagie_avatar.svg">   
+          </span>
+          <div id="features-box">
+            <div class="sui-a-text as--xl">Available features</div>
+
+            <div class="sui-a-text as--ml">Create job from its description</div>
+            <div class="sui-m-message as--light">
+                <div class="sui-a-text">1. Describe the job</div>
+                <div class="sui-a-text">2. Review the job code proposal</div>
+            </div>
+
+            <div class="sui-a-text as--ml">Create a pipeline from its description</div>
+            <div class="sui-m-message as--light">
+                <div class="sui-a-text">1. Describe the pipeline</div>
+                <div class="sui-a-text">2. Review the Pipeline Decomposition proposal</div>
+                <div class="sui-a-text">3. Review the job codes proposal</div>
+            </div>
+
+            <div class="sui-a-text as--ml">Create a pipeline from its structure drawing image</div>
+            <div class="sui-m-message as--light">
+                <div class="sui-a-text">1. Draw the pipeline</div>
+                <div class="sui-a-text">2. Upload your image <span id="upload-img" class="upload-img material-symbols-rounded" style="color: #253c5b; background-color: white;">add_photo_alternate</span></div>
+                <div class="sui-a-text">3. Review the job codes proposal</div>
+            </div>
+            <!--<div class="feature-title"><span style="color: red;">*</span>If necessary, you can readjust elements by informing Saag-IA of the desired change</div>-->
+          </div>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <span id="upload-img" class="upload-img material-symbols-rounded">add_photo_alternate</span>
+        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+      </div>
+    </div>
+
+  </body>
+</html>
