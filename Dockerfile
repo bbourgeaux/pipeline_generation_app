@@ -8,7 +8,7 @@ WORKDIR /pipeline-generation-app
 
 # Copy the requirements.txt file and install the Python dependencies
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip3.8 install -r requirements.txt
 
 # Copy the entire project into the container
 COPY . .

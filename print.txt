@@ -1,0 +1,946 @@
+    1  pwd
+    2  ls
+    3  cd Documents/
+    4  git clone https://github.com/github/CodeSearchNet.git
+    5  sudo apt install git
+    6  git clone https://github.com/github/CodeSearchNet.git
+    7  conda lsit
+    8  conda list
+    9  sudo apt update
+   10  sudo apt install curl -y
+   11  cd /tmp
+   12  ls
+   13  sha256sum Anaconda3-2022.10-Linux-x86_64.sh 
+   14  bash Anaconda3-2022.10-Linux-x86_64.sh 
+   15  source ~/.bashrc
+   16  conda list
+   17  conda --version
+   18  source ~/.bashrc
+   19  conda list
+   20  pwd
+   21  bash Anaconda3-2022.10-Linux-x86_64.sh 
+   22  cd /tmp/
+   23  bash Anaconda3-2022.10-Linux-x86_64.sh 
+   24  conda list
+   25  conda deactivate
+   26  conda config --set auto_activate_base false
+   27  conda list
+   28  cd anaconda3/
+   29  ls
+   30  cd bin/
+   31  ls
+   32  cd ..
+   33  sudo source ~/.bashrc
+   34  source ~/.bashrc
+   35  conda init
+   36  cd /tmp
+   37  curl https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh --output anaconda.sh
+   38  sha256sum anaconda.sh 
+   39  curl https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh --output anaconda.sh
+   40  sha256sum anaconda.sh 
+   41  bash anaconda.sh 
+   42  bash anaconda.sh -u
+   43  source ~/.bashrc
+   44  conda list
+   45  conda --version
+   46  source deactivate
+   47  conda list
+   48  source activate
+   49  conda activate
+   50  conda search "^python$"
+   51  conda create --name first_env python=3
+   52  conda activate first_env
+   53  python --version
+   54  conda deactivate
+   55  conda info --envs
+   56  conda install --name first_env numpy
+   57  conda install --name first_env sentence-transformers
+   58  conda install -c conda-forge --name first_env sentence-transformers
+   59  sudo apt update && sudo apt upgrade -y
+   60  sudo apt install code
+   61  sudo apt install software-properties-common apt-transport-https wget -y
+   62  wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
+   63  echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+   64  sudo apt update
+   65  sudo apt install code
+   66  code
+   67  conda install --name first_env ipykernel
+   68  conda install --name first_env pandas
+   69  conda install --name first_env matplotlib, openai
+   70  conda install -c conda-forge --name first_env matplotlib, openai
+   71  conda install -c conda-forge --name first_env matplotlib
+   72  conda install -c conda-forge --name first_env openai
+   73  conda install -c conda-forge --name first_env plotly
+   74  sudo apt update firefox
+   75  sudo apt install --only-upgrade firefox
+   76  sudo apt autoremove
+   77  sudo apt update
+   78  sudo apt install firefox
+   79  conda install -c pytorch pytorch --name first_env plotly
+   80  conda install -c pytorch pytorch --name first_env
+   81  sudo apt update spotify
+   82  sudo update spotify
+   83  conda list
+   84  conda env list
+   85  conda activate first_env
+   86  python train_transformer.py 
+   87  python3 test.py 
+   88  conda activate first_env
+   89  python3 test.py 
+   90  codna activate first_env
+   91  conda activate first_en
+   92  python3 test2.py 
+   93  pip list
+   94  pip3 list
+   95  conda env list
+   96  conda activate first_env
+   97  list
+   98  conda list
+   99  conda activate first_env
+  100  nvidia-smi
+  101  lspci
+  102  sudo apt-get install nvidia-smi
+  103  ubuntu-drivers devices
+  104  sudo apt-get autoremove
+  105  sudo apt-get remove nvidia*
+  106  sudo apt-get purge cuda*
+  107  sudo gedit /etc/modprobe.d/blacklist-nouveau.conf
+  108  echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+  109  sudo add-apt-repository ppa:graphics-drivers/ppa
+  110  lspci
+  111  lspci | grep nvidia
+  112  lspci | grep NVIDIA
+  113  lspci | grep VGA
+  114  nvidia-smi
+  115  sudo apt install nvidia-driver-525
+  116  nvidia-smi
+  117  lspci | grep -i nvidia
+  118  uname -m && cat /etc/*release
+  119  gcc -version
+  120  gcc --version
+  121  uname -r
+  122  sudo apt-get install linux-headers-$(uname -r)
+  123  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+  124  sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+  125  wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb
+  126  sudo dpkg -i cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb
+  127  sudo cp /var/cuda-repo-ubuntu2204-12-0-local/cuda-*-keyring.gpg /usr/share/keyrings/
+  128  sudo apt-get update
+  129  sudo apt-get -y install cuda
+  130  conda install cuda -c nvidia
+  131  cat /proc/driver/nvidia/version
+  132  nvcc -V
+  133  wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
+  134  cd ~/
+  135  cuda-install-samples-7.5.sh .
+  136  apt-get install cuda-samples-7-0 -y
+  137  sudo apt-get install cuda-samples-7-0 -y
+  138  sudo reboot
+  139  pip3
+  140  pip
+  141  sudo apt install python3-pip
+  142  pip install torch
+  143  pip install ipykernel
+  144  nvidia-smi
+  145  sudo apt install nvidia-utils-515
+  146  nvidia-smi
+  147  cat /proc/driver/nvidia/version
+  148  ipython
+  149  ipython3
+  150  sudo apt install ipython3
+  151  ipython3 
+  152  conda env list
+  153  conda list first_env
+  154  conda list -n first_env
+  155  cat /usr/local/cuda/version.txt
+  156  cat /proc/driver/nvidia/version
+  157  nvcc -V
+  158  sudo apt install nvidia-cuda-toolkit
+  159  nvcc -V
+  160  sudo apt-get install cuda-samples-7-0 -y
+  161  ./bin/ppc64le/linux/release/deviceQuery
+  162  cat /proc/driver/nvidia/version
+  163  conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
+  164  nvidia-smi
+  165  cat /proc/driver/nvidia/version
+  166  lspci | grep -i nvidia
+  167  uname -m && cat /etc/*release
+  168  gcc --version
+  169  uname -r
+  170  sudo apt-get install linux-headers-$(uname -r)
+  171  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
+  172  sudo dpkg -i cuda-keyring_1.0-1_all.deb
+  173  sudo apt-get update
+  174  sudo apt-get -y install cuda
+  175  md5sum cuda-keyring_1.0-1_all.deb
+  176  md5sum cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb 
+  177  sudo reboot
+  178  conda activate first_env
+  179  conda install -c conda-forge gputil
+  180  conda install -c conda-forge numba
+  181  sudo reboot
+  182  susdi reboot
+  183  sudo reboot
+  184  conda activate first_env
+  185  conda install -c conda-forge mlflow
+  186  conda install -c anaconda scikit-learn
+  187  ls
+  188  mkdir mlflow
+  189  cd mlflow/
+  190  git clone https://github.com/mlflow/mlflow
+  191  ls
+  192  ls mlflow/
+  193  cd ..
+  194  ls
+  195  cd mlflow/
+  196  ls
+  197  mv mlflow ..
+  198  mvdir -r mlflow ..
+  199  mv -r mlflow ..
+  200  mv --r mlflow ..
+  201  mvdir mlflow ..
+  202  cd ..
+  203  rmdir mlflow/
+  204  rmdir -r mlflow/
+  205  rm -r mlflow/
+  206  ls
+  207  ls mlflow/
+  208  rm -r mlflow/*
+  209  rm -r -m mlflow/
+  210  rm -r mlflow/*
+  211  rm -r -f mlflow/
+  212  ls
+  213  git clone https://github.com/mlflow/mlflow
+  214  ls
+  215  cd mlflow/examples/
+  216  ls
+  217  cd ../..
+  218  cd cpt_transformer/
+  219  ls
+  220  mkdir data
+  221  mkdir train
+  222  rm train
+  223  ls
+  224  rmdir train
+  225  ls
+  226  mkdir data/train
+  227  mkdir data/val
+  228  mkdir data/test
+  229  conda activate first_env
+  230  mlflow ui
+  231  conda activate first_env
+  232  cd mlflow/examples/pytorch/BertNewsClassification/
+  233  mlflow ui
+  234  cd ../mlflow/examples/pytorch/MNIST/
+  235  ls
+  236  mlflow run . --env-manager=local
+  237  conda activate first_env
+  238  mlflow run . --env-manager=local
+  239  conda install -c conda-forge pytorch-lightning
+  240  mlflow run . --env-manager=local
+  241  mlflow ui
+  242  cd ../BertNewsClassification/
+  243  mlflow run . --env-manager=local
+  244  conda activate first_env
+  245  conda install -c bioconda hurry.filesize
+  246  conda install -c "bioconda/label/cf201901" hurry.filesize
+  247  mlflow ui
+  248  cd cpt_transformer/
+  249  mlflow ui
+  250  mkdir models
+  251  mlflow ui
+  252  conda activate first_env
+  253  mlflow ui
+  254  ssh http://10.201.0.51:8888/lab
+  255  ssh 10.201.0.51:8888/lab
+  256  conda activate first_env
+  257  mlflow ui
+  258  conda activate first_env
+  259  mlflow ui
+  260  conda activate first_env
+  261  mlflow ui
+  262  sudo reboot
+  263  conda activate first_env
+  264  mlflow ui
+  265  conda deactivate
+  266  mlflow ui
+  267  conda activate first_env
+  268  mlflow ui
+  269  scp /home/bbourgeaux/Documents/CodeSearchNet/python.zip  root@a4000-22cn29:/data/Data/Copilot/CodeSearchNet
+  270  scp /home/bbourgeaux/Documents/CodeSearchNet/python.zip  root@10.201.0.51:8888/lab/tree/Data/Copilot/CodeSearchNet
+  271  conda activate first_env
+  272  conda update --all
+  273  cd Documents/
+  274  ls
+  275  git clone https://github.com/microsoft/CodeBERT.git
+  276  cd CodeBERT/
+  277  ls
+  278  mkdir data data/codesearch
+  279  ls
+  280  gdown https://drive.google.com/uc?id=1xgSR34XO8xXZg4cZScDYj2eGerBE9iGo 
+  281  wget https://drive.google.com/uc?id=1xgSR34XO8xXZg4cZScDYj2eGerBE9iGo 
+  282  ls
+  283  gdown https://drive.google.com/uc?id=1xgSR34XO8xXZg4cZScDYj2eGerBE9iGo
+  284  pip install gdown
+  285  gdown https://drive.google.com/uc?id=1xgSR34XO8xXZg4cZScDYj2eGerBE9iGo
+  286  ls
+  287  mv codesearch_data.zip data/codesearch/
+  288  ls
+  289  cd data/codesearch/
+  290  unzip codesearch_data.zip 
+  291  rm codesearch_data.zip 
+  292  cd ../..
+  293  ls
+  294  cd ..
+  295  ls
+  296  cd CodeBERT/
+  297  cd CodeBERT/codesearch/
+  298  ls
+  299  python process_data.py
+  300  python3 process_data.py
+  301  cd ..
+  302  ls
+  303  cd ..
+  304  ls
+  305  mv data/* CodeBERT/
+  306  cp -r ./data/* ./CodeBERT/ && rm -R ./data/*
+  307  ls
+  308  cd CodeBERT/
+  309  ls
+  310  cd ..
+  311  ls
+  312  cp -r ./data/* ./CodeBERT
+  313  ls
+  314  cp -r data/* ./CodeBERT
+  315  ls
+  316  cd data/
+  317  ls
+  318  cd ..
+  319  rmdir data
+  320  ls
+  321  cd CodeBERT/
+  322  ls
+  323  cd codesearch/
+  324  ls
+  325  mkdir ../data
+  326  mkdir ../data/codesearch
+  327  mv ./*.gz ../data/codesearch/
+  328  ls
+  329  ls ../data/codesearch/
+  330  ls train_valid
+  331  mkdir ../data/codesearch/train_valid
+  332  cp -r train_valid/* ../data/codesearch/train_valid/
+  333  ls
+  334  rm -r ./train_valid/
+  335  ls
+  336  cd ..
+  337  cd codes
+  338  cd codesearch/
+  339  ls
+  340  cd ..
+  341  ls
+  342  cd codesearch/
+  343  python process_data.py 
+  344  python3 process_data.py 
+  345  conda activate first_env
+  346  python3 process_data.py
+  347  conda deactivate
+  348  python3 process_data.py
+  349  cd ..
+  350  cd codesearch/
+  351  lang=python
+  352  idx=0
+  353  $lang
+  354  python run_classifier.py --model_type roberta --model_name_or_path microsoft/codebert-base --task_name codesearch --do_predict --output_dir ./models/$lang --data_dir ../data/codesearch/test/$lang --max_seq_length 200 --per_gpu_train_batch_size 32 --per_gpu_eval_batch_size 32 --learning_rate 1e-5 --num_train_epochs 8 --test_file batch_${idx}.txt --pred_model_dir ./models/$lang/checkpoint-best/ --test_result_dir ./results/$lang/${idx}_batch_result.txt
+  355  python3 run_classifier.py --model_type roberta --model_name_or_path microsoft/codebert-base --task_name codesearch --do_predict --output_dir ./models/$lang --data_dir ../data/codesearch/test/$lang --max_seq_length 200 --per_gpu_train_batch_size 32 --per_gpu_eval_batch_size 32 --learning_rate 1e-5 --num_train_epochs 8 --test_file batch_${idx}.txt --pred_model_dir ./models/$lang/checkpoint-best/ --test_result_dir ./results/$lang/${idx}_batch_result.txt
+  356  conda activate first_env
+  357  python3 run_classifier.py --model_type roberta --model_name_or_path microsoft/codebert-base --task_name codesearch --do_predict --output_dir ./models/$lang --data_dir ../data/codesearch/test/$lang --max_seq_length 200 --per_gpu_train_batch_size 32 --per_gpu_eval_batch_size 32 --learning_rate 1e-5 --num_train_epochs 8 --test_file batch_${idx}.txt --pred_model_dir ./models/$lang/checkpoint-best/ --test_result_dir ./results/$lang/${idx}_batch_result.txt
+  358  pretrained_model=microsoft/codebert-base
+  359  echo $ pretrained_model
+  360  echo $pretrained_model
+  361  echo $lang
+  362  python3 run_classifier.py --model_type roberta --model_name_or_path microsoft/codebert-base --task_name codesearch --do_predict --output_dir ./models/$lang --data_dir ../data/codesearch/test/$lang --max_seq_length 200 --per_gpu_train_batch_size 32 --per_gpu_eval_batch_size 32 --learning_rate 1e-5 --num_train_epochs 8 --test_file batch_${idx}.txt --model_name_or_path $pretrained_model --test_result_dir ./results/$lang/${idx}_batch_result.txt
+  363  python3 run_classifier.py --model_type roberta --task_name codesearch --do_train --do_eval --eval_all_checkpoints --train_file train.txt --dev_file valid.txt --max_seq_length 200 --per_gpu_train_batch_size 32 --per_gpu_eval_batch_size 32 --learning_rate 1e-5 --num_train_epochs 0 --gradient_accumulation_steps 1 --overwrite_output_dir --data_dir ../data/codesearch/train_valid/$lang --output_dir ./models/$lang  --model_name_or_path $pretrained_model
+  364  conda activate first_env
+  365  pip install nemo_toolkit['all']
+  366  pip install Cython
+  367  pip install nemo_toolkit['all']
+  368  dpkg -i code_1.76.0-1677667493_amd64.deb 
+  369  sudo dpkg -i code_1.76.0-1677667493_amd64.deb 
+  370  ./configure && make && make install
+  371  sudo apt-get install libssl-dev
+  372  ./configure && make && make install
+  373  sudo apt-get install libssl-dev liblzo2-dev libpam0g-dev
+  374  ./configure && make && make install
+  375  sudo ./configure && make && make install
+  376  sudo make install
+  377  openvpn
+  378  openvpn --version
+  379  openvpn --help
+  380  openvpn --config file
+  381  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  382  chmod a+x spotify_control
+  383  chmod a+x spotify_control.zip
+  384  chmod a+x spotify_control
+  385  ls
+  386  cd Images/
+  387  ls
+  388  mkdir Captures\ d’écran/lala
+  389  ls Captures\ d’écran/
+  390  mv 5616.webp Captures\ d’écran/lala/
+  391  ls Captures\ d’écran/lala/
+  392  mkdir Captures\ d’écran/lolo
+  393  cp Captures\ d’écran/lala/5616.webp Captures\ d’écran/lolo/
+  394  mkdir test
+  395  cp -r Captures\ d’écran/*
+  396  ls
+  397  cp -r Captures\ d’écran/* test/
+  398  ls test/
+  399  ls test/lala/
+  400  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  401  sudo apt-get install google-chrome-stable
+  402  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  403  conda activate first_env
+  404  flask run
+  405  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  406  cd ./flask_app/
+  407  conda activate first_env
+  408  flask run
+  409  cd flask_app_openai
+  410  conda activate first_env
+  411  flask run
+  412  cd flask_app/
+  413  conda activate first_env
+  414  flask run
+  415  cd flask_app_openai/
+  416  conda_activate_first_env
+  417  conda activate first_env
+  418  flask run
+  419  python app.py
+  420  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  421  pip install Flask
+  422  sudo pip install Flask
+  423  cd Documents/
+  424  ls
+  425  git add docker_flask_app/
+  426  git commit -m "flask app"
+  427  git add docker_flask_app/.
+  428  git commit -m "flask app"
+  429  git push
+  430  git pull
+  431  git push
+  432  git push --help
+  433  git push -f
+  434  git reset docker_flask_app/data/distilroberta_2.86.pt
+  435  git reset docker_flask_app/data/database10k.csv
+  436  git push -f
+  437  git checkout docker_flask_app/data/database10k.csv
+  438  git checkout docker_flask_app/data/distilroberta_2.86.pt
+  439  git commit -m "flask app"
+  440  git push -f
+  441  git checkout
+  442  git status
+  443  git pull
+  444  git commit -m "flask app"
+  445  git push
+  446  git init
+  447  git add card_game/
+  448  git commit
+  449  git commit -m "card game"
+  450  git push
+  451  git prune
+  452  git commit -m "card game"
+  453  git remove
+  454  git checkout
+  455  git pull
+  456  git push -f
+  457  git status
+  458  git pull
+  459  git init
+  460  git add card_game/main.py 
+  461  git add card_game/
+  462  git commit -m "card game"
+  463  git push
+  464  git push bbourgeaux/Copilot
+  465  git push https://github.com/bbourgeaux/Copilot.git
+  466  git add docker_flask_app
+  467  git reset -- docker_flask_app/data/distilroberta_2.86.pt
+  468  git reset -- docker_flask_app/data/database10k.csv
+  469  git reset -- docker_flask_app/data/database100.csv
+  470  git reset -- docker_flask_app/data/database1k.csv
+  471  git commit -m "flask app docker"
+  472  git push https://github.com/bbourgeaux/Copilot.git
+  473  git add ./*
+  474  git add ./*.py
+  475  git commit -m "python files"
+  476  git push https://github.com/bbourgeaux/Copilot.git
+  477  git add ./*.ipynb
+  478  git commit -m "notebooks"
+  479  git push https://github.com/bbourgeaux/Copilot.git
+  480  git add cpt_transformer/*.ipynb cpt_transformer/*.py
+  481  git add cpt_transformer/*.ipynb
+  482  git commit -m "cpt_transformer notebooks"
+  483  git push https://github.com/bbourgeaux/Copilot.git
+  484  conda activate first_env
+  485  cd docker_flask_app/
+  486  flask run
+  487  conda activate first_env
+  488  cd Langchain-Crash-Course/
+  489  steramlit app.py
+  490  streamlit app.py
+  491  streamlit app
+  492  streamlit run app.py
+  493  cd ../pipeline_test/
+  494  python preprocess.py 
+  495  python preprocess.py 5
+  496  conda activate first_env
+  497  cd docker_flask_app/
+  498  sudo docker ps
+  499  docker images
+  500  sudo docker images
+  501  sudo docker build zbaptiste/code-search-app-repo --tag 0.5 .
+  502  sudo docker build --tag zbaptiste/code-search-app-repo:0.5 .
+  503  sudo docker push zbaptiste/code-search-app-repo:0.5
+  504  flask run
+  505  cd ..
+  506  cd Gitlab_T3_Copilot/
+  507  git status
+  508  git init
+  509  git add .
+  510  git commit -m "docker flask app"
+  511  git add .
+  512  git commit -m "docker flask app"
+  513  git remote add origin https://gitlab.insa-rouen.fr/bbourgeaux/copilot.git
+  514  git push -u origin main
+  515  git branch -M main
+  516  git push -uf origin main
+  517  git add .
+  518  git commit -m "notebooks and python files"
+  519  git push -uf origin main
+  520  cd Documents/
+  521  ls
+  522  git clone https://github.com/ezelikman/parsel.git
+  523  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  524  cd Documents/
+  525  ls
+  526  git clone https://github.com/saagie/technologies-community.git
+  527  cd technologies-community/
+  528  ls
+  529  git status
+  530  git branch feature/code-search
+  531  git checkout feature/code-search 
+  532  ls
+  533  cd technologies/
+  534  ls
+  535  cd app/
+  536  ls
+  537  mkdir code-search
+  538  ls
+  539  cd code-search/
+  540  ls
+  541  git att -all
+  542  git add -all
+  543  git add --all
+  544  git commit -m "Add Code Search App Basic Scripts"
+  545  git status
+  546  git push --set-upstream origin feature/code-search 
+  547  git push origin feature/code-search 
+  548  cd ~/Documents/
+  549  git clone https://github.com/bbourgeaux/technologies-community.git
+  550  ls
+  551  cd technologies-community/
+  552  git status
+  553  git branch feature/code-search
+  554  git checkout feature/code-search 
+  555  ls ./technologies/app/
+  556  ls ./technologies/app/code-search/
+  557  git add --all
+  558  git commit -m "Add Code Search App Basic Scripts"
+  559  git status
+  560  git push --set-upstream origin feature/code-search 
+  561  git status
+  562  git push --set-upstream origin feature/code-search 
+  563  git add --all
+  564  git status
+  565  git commit -m "Add Code Search App Basic Scripts"
+  566  git push --set-upstream origin feature/code-search 
+  567  git add --all
+  568  git status
+  569  git commit -m "Add Code Search App Basic Scripts"
+  570  git push --set-upstream origin feature/code-search 
+  571  git status
+  572  git push --set-upstream origin feature/code-search 
+  573  cd Do
+  574  cd Documents/
+  575  ls
+  576  cd technologies-community/
+  577  git status
+  578  git add --all
+  579  git commit -m "Add Code Search App Basic Scripts"
+  580  git push --set-upstream origin feature/code-search 
+  581  sudo apt-get update
+  582  git --version
+  583  git push --set-upstream origin feature/code-search 
+  584  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  585  cd Documents/technologies-community/
+  586  ls
+  587  git status
+  588  git add --all
+  589  git status
+  590  git commit -m "first commit"
+  591  git push
+  592  git push --set-upstream origin feature/code-search 
+  593  cd Documents/
+  594  ls
+  595  cd technologies-community/
+  596  ls
+  597  git status
+  598  git push --set-upstream origin feature/code-search 
+  599  git status
+  600  git show
+  601  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  602  sudo openvpn /home/bbourgeaux/Téléchargements/insa-ovpn-tun-ca.ovpn 
+  603  sudo openvpn /home/bbourgeaux/Téléchargements/insa-ovpn-tun-ca.ovpn
+  604  cd Bureau/
+  605  cd technologies-community/
+  606  git status
+  607  git add --all
+  608  git status
+  609  git commit -m "Update code-search app files"
+  610  git push --set-upstream origin feature/code-search
+  611  git status
+  612  git commit -m "Update readme and metadata.yaml"
+  613  git add --all
+  614  git commit -m "Update readme and metadata.yaml"
+  615  git push --set-upstream origin feature/code-search
+  616  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  617  docker login zbaptiste
+  618  git status
+  619  cd Documents/
+  620  ls
+  621  cd ..
+  622  cd Bureau/
+  623  ls
+  624  cd technologies-community/
+  625  git status
+  626  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  627  git clone bbourgeaux/hello-world
+  628  git clone https://github.com/bbourgeaux/hello-world.git
+  629  ls
+  630  cd hello-world/
+  631  git status
+  632  git branch
+  633  git branch -r
+  634  git branch
+  635  git branch -r
+  636  git branch
+  637  git status
+  638  git branch -a
+  639  git pull
+  640  git branch
+  641  git branch -r
+  642  git branch -a
+  643  git checkout --track origin/feature/saagie-code-search 
+  644  git statuss
+  645  git status
+  646  git branch
+  647  git status
+  648  git add *
+  649  git status
+  650  git push
+  651  git commit -m 'add code search app scripts'
+  652  git push -u origin feature/saagie-code-search 
+  653  sudo dpkg -i code_1.82.1-1694163687_amd64.deb 
+  654  cd Bur
+  655  cd ../Bureau/
+  656  ls
+  657  git clone https://github.com/saagie/technologies-community.git
+  658  cd technologies-community/
+  659  git status
+  660  git pull
+  661  git checkout -a
+  662  git branch -a
+  663  git branch
+  664  git checkout --track origin/feature/saagie-code-search
+  665  git branch
+  666  git status
+  667  git add technologies/app/saagie-code-search/*
+  668  git commit -m 'Add Code Search Basic Scripts'
+  669  git push -u origin feature/saagie-code-search
+  670  git pull
+  671  git checkout
+  672  git status
+  673  git add logos/saagieCodeSearch.svg technologies/app/saagie-code-search/metadata.yaml 
+  674  git commit -m 'add code search app logo and update metadata.yaml file’
+  675  [200~git commit -m 'add code search app logo and update metadata.yaml file'
+  676  git commit -m 'add code search app logo and update metadata.yaml file'
+  677  git push -u origin feature/saagie-code-search
+  678  git pull
+  679  git checkout
+  680  git branch
+  681  git add
+  682  git status
+  683  git commit -m "Update code search scripts for review"
+  684  git add technologies/app/saagie-code-search/metadata.yaml 
+  685  git add technologies/app/saagie-code-search/*
+  686  git status
+  687  git commit -m "Update code search scripts for review"
+  688  git push -u origin feature/saagie-code-search
+  689  git pull
+  690  git status
+  691  git add technologies/app/saagie-code-search/metadata.yaml
+  692  git status
+  693  git commit -m "Update code search metadata.yaml"
+  694  git push -u origin feature/saagie-code-search
+  695  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  696  python3 __main__.py 
+  697  conda activate first_env
+  698  python3 __main__.py 
+  699  python3 __main__.py --csv_file lala.csv
+  700  python3 job_0.py --csv_file lala.csv
+  701  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  702  sudo dpkg -i google-chrome-stable_current_amd64
+  703  sudo dpkg -i google-chrome-stable_current_amd64.deb 
+  704  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  705  nvidia-smi
+  706  cd ../../..
+  707  pwd
+  708  cd ../../..
+  709  pwd
+  710  ls
+  711  cd bbourgeaux/
+  712  ls
+  713  cd Documents/
+  714  conda activate first_env
+  715  pip --version
+  716  pip3 --version
+  717  python --version
+  718  python3 --version
+  719  python3.8 --version
+  720  mkdir pipeline_generation
+  721  cd pipeline_
+  722  cd pipeline_generation/
+  723  pip3 install huggingface-hub
+  724  pip install --upgrade pip
+  725  pip3 install huggingface-hub
+  726  mkdir Mistral-7B-Instruct-v0.1-GPTQ
+  727  huggingface-cli download TheBloke/Mistral-7B-Instruct-v0.1-GPTQ --local-dir Mistral-7B-Instruct-v0.1-GPTQ --local-dir-use-symlinks False
+  728  pip list
+  729  pip3 install git+https://github.com/huggingface/transformers.git@72958fcd3c98a7afdc61f953aa58c544ebda2f79
+  730  pip list
+  731  huggingface-cli download TheBloke/Mistral-7B-Instruct-v0.1-GPTQ --local-dir Mistral-7B-Instruct-v0.1-GPTQ --local-dir-use-symlinks False
+  732  pip3 install optimum
+  733  pip3 install git+https://github.com/huggingface/transformers.git@72958fcd3c98a7afdc61f953aa58c544ebda2f79
+  734  pip list
+  735  cat ../../../../usr/local/cuda/version.json 
+  736  pip list
+  737  whereis cuda
+  738  cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+  739  cat /usr/local/cuda/include/cu | grep CUDNN_MAJOR -A 2
+  740  cat /usr/local/cuda/include/cuda.h | grep CUDNN_MAJOR -A 2
+  741  cat /usr/local/cuda/include/cuda.h | grep CUDA_MAJOR -A 2
+  742  pip3 install auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+  743  pip3 uninstall -y auto-gptq
+  744  git clone https://github.com/PanQiWei/AutoGPTQ
+  745  cd AutoGPTQ
+  746  git checkout v0.4.2
+  747  pip3 install .
+  748  pip show cuda
+  749  nvidia-smi
+  750  nvcc --version
+  751  sudo apt install nvidia-cuda-toolkit
+  752  nvcc --version
+  753  nvidia-smi
+  754  whereis nvidia
+  755  conda activate first_env
+  756  cd Documents/pipeline_generation/
+  757  ls
+  758  nvidia-smi
+  759  prime-select nvidia
+  760  sudo prime-select nvidia
+  761  sudo prime-select query
+  762  lsb_release -a
+  763  conda activate first_env
+  764  cd Documents/pipeline_generation/
+  765  nvidia-smi
+  766  sudo prime-select query
+  767  sudo prime-select nvidia
+  768  nvidia-smi
+  769  sudo apt-get remove --purge '^nvidia-.*'
+  770  sudo apt-get remove --purge '^libnvidia-.*'
+  771  sudo apt-get remove --purge '^cuda-.*'
+  772  sudo apt autoremove
+  773  nvidia-detector
+  774  man nvidia-detector
+  775  man nvidia
+  776  conda deactivate
+  777  lspci | grep -i nvidia
+  778  sudo apt-get purge nvidia*
+  779  sudo apt remove nvidia-*
+  780  sudo rm /etc/apt/sources.list.d/cuda*
+  781  sudo apt-get autoremove && sudo apt-get autoclean
+  782  sudo rm -rf /usr/local/cuda*
+  783  sudo apt-get update
+  784  sudo apt-get upgrade
+  785  sudo apt-get install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+  786  sudo add-apt-repository ppa:graphics-drivers/ppa
+  787  ls
+  788  cd ../..
+  789  ls
+  790  pwd
+  791  sudo apt update
+  792  sudo apt install libnvidia-common-515
+  793  sudo apt install libnvidia-gl-515
+  794  sudo apt install nvidia-driver-515
+  795  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+  796  sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+  797  sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+  798  sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /"
+  799  sudo apt-get update
+  800  sudo apt install cuda-11-7 
+  801  sudo apt-get update
+  802  sudo apt-get install -f
+  803  sudo apt install cuda-11-7 
+  804  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  805  sudo apt install cuda-11-7 
+  806  sudo apt-get install cuda-11-7 
+  807  sudo apt install cuda-11-7 
+  808  sudo apt-get install nvidia-kernel-common-525
+  809  sudo apt install cuda-11-7 
+  810  sudo apt-get install libnvidia-extra-525
+  811  sudo apt install cuda-11-7 
+  812  echo 'export PATH=/usr/local/cuda-11.7/bin:$PATH' >> ~/.bashrc
+  813  echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+  814  source ~/.bashrc
+  815  sudo ldconfig
+  816  CUDNN_TAR_FILE="cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz"
+  817  wget https://developer.nvidia.com/compute/cudnn/secure/8.5.0/local_installers/11.7/cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz
+  818  tar -xzvf ${CUDNN_TAR_FILE}
+  819  tar -xzvf cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz
+  820  nvidia-smi
+  821  nvcc -v
+  822  nvcc -V
+  823  sudo apt-get install nvidia-kernel-common-545
+  824  sudo apt autoremove
+  825  sudo apt-get install nvidia-kernel-common-545
+  826  sudo apt-get install nvidia-kernel-source-545
+  827  nvidia-smi
+  828  sudo apt-get install libnvidia-extra-545
+  829  nvidia-smi
+  830  conda activate first_env
+  831  nvidia-smi
+  832  pip list
+  833  sudo dpkg -i crossftp_1.99.9.deb 
+  834  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  835  mlflow ui
+  836  conda activate first_env
+  837  mlflow ui
+  838  cd
+  839  nano .bash_profile
+  840  cd /home/
+  841  nano .bash_profile
+  842  cd ..
+  843  cd ~
+  844  pwd
+  845  nano .bash_profile
+  846  source .bash_profile 
+  847  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  848  echo $USER_VPN 
+  849  echo $PASSWORD_VPN 
+  850  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn 
+  851  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-_user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  852  sudo openvpn /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  853  sudo openvpn --config /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  854  conda activate first_env
+  855  cd ../pipeline_generation/
+  856  python mistral_cpu_job.py 
+  857  pip list
+  858  python main.py 
+  859  python __main__.py 
+  860  conda activate first_env
+  861  pip show ctransformers
+  862  sudo openvpn --config /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  863  ls
+  864  python __main__.py
+  865  conda activate first_env
+  866  python __main__.py
+  867  conda activate first_env
+  868  python __main__.py
+  869  python -V
+  870  sudo openvpn --config /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  871  conda activate first_env
+  872  streamlit hello
+  873  conda activate first_env
+  874  streamlit run streamlit_app.py 
+  875  sudo openvpn --config /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  876  sudo dpkg -i code_1.85.2-1705561292_amd64.deb 
+  877  echo /usr/bin/bash
+  878  sudo openvpn --config /home/bbourgeaux/Téléchargements/sauron-1-TCP-1197-baptiste.bourgeaux-config.ovpn --auth-user-pass /home/bbourgeaux/Téléchargements/vpn_pass.txt 
+  879  sudo docker images
+  880  sudo docker ps
+  881  sudo docker login
+  882  sudo docker ps
+  883  sudo docker ps -a
+  884  cd Bureau/
+  885  cd ../Doc
+  886  cd ../Documents/
+  887  ls
+  888  mkdir pipeline_generation_app
+  889  cd pipeline_generation_app/
+  890  echo "# pipeline_generation_app" >> README.md
+  891  git init
+  892  git add README.md 
+  893  git commit -m "first commit"
+  894  git branch -M main
+  895  git remote add origin https://github.com/bbourgeaux/pipeline_generation_app.git
+  896  git push -u origin main
+  897  echo "# pipeline_generation_app. Flask web app to generate pipelines and jobs in Saagie" >> README.md
+  898  git add README.md 
+  899  git commit -m "second commit"
+  900  git push -u origin main
+  901  git login
+  902  git config --global credential.helper store
+  903  git pull
+  904  echo "Flask web app to generate pipelines and jobs in Saagie" >> README.md
+  905  git add README.md 
+  906  git commit -m "third commit"
+  907  git push -u origin main
+  908  git add *
+  909  git commit -m "all app files"
+  910  git push -u origin main
+  911  git add *
+  912  git commit -m "removed pycache"
+  913  git add *
+  914  git commit -m "removed pycache"
+  915  git push -u origin main
+  916  git rm __pycache__ 
+  917  git rm -r __pycache__ 
+  918  git commit -m "removed pycache"
+  919  git push -u origin main
+  920  echo "Flask web app to generate pipelines and jobs in Saagie" >> Dockerfile
+  921  echo requirements.txt
+  922  echo "" >> requirements.txt
+  923  git add *
+  924  git commit -m "added requiremetns.txt, Dockerfile"
+  925  git push -u origin main
+  926  git remove *
+  927  git rm utils.py
+  928  git commit -m "removed utils.py"
+  929  git push -u origin main
+  930  git add requirements.txt 
+  931  git commit -m "added saagieapi to requirements.txt"
+  932  git push -u origin main
+  933  sudo docker build --tag zbaptiste/pipeline-generation-app-repo:0.1 .
+  934  sudo docker images
+  935  sudo docker push zbaptiste/pipeline-generation-app-repo:0.1
+  936  sudo docker run -d -p 5000:5000 zbaptiste/pipeline-generation-app-repo:0.1
+  937  sudo docker run
+  938  sudo docker run -d -p 80:80 zbaptiste/pipeline-generation-app-repo:0.1
+  939  sudo docker ps
+  940  sudo docker ps -a
+  941  sudo docker ps
+  942  sudo docker run -d -p 80:80 zbaptiste/pipeline-generation-app-repo:0.1
+  943  sudo docker ps
+  944  sudo docker images
+  945  history | grep sudo docker run
+  946  history > print.txt
