@@ -22,6 +22,7 @@ buttonsInChatbox.forEach(button => {
     button.style.display = "none";
 });
 
+let lastDoneTask = 'pipeline_decomposition';
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
 
@@ -47,7 +48,7 @@ const generatePipelineDecomposition = async (chatElement, userMessage) => {
 
     try {
         // Make a POST request to the Flask endpoint
-        const response = await fetch('/generate-response', {
+        const response = await fetch('generate-response', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -62,9 +63,8 @@ const generatePipelineDecomposition = async (chatElement, userMessage) => {
         const data = await response.json();
 
         // Extract the desired fields from each dictionary
-        const extractedFields = data.map(item => {
-            
-            //return `<strong>Job ${item.id} : ${item.name}</strong>\nDescription: ${item.description}\nInput Resources: ${JSON.stringify(item.input_resources)}\nOutput Resources: ${JSON.stringify(item.output_resources)}\n\n`;
+        //const extractedFields = data.map(item => {
+        const extractedFields = data.jobs.map(item => {
             return `<div class="sui-a-text as--ml">Job ${item.id} : ${item.name}</div>\n<div class="sui-a-text">Description: ${item.description}\nInput Resources: ${JSON.stringify(item.input_resources)}\nOutput Resources: ${JSON.stringify(item.output_resources)}\n\n</div>`;
         });
 
@@ -76,11 +76,16 @@ const generatePipelineDecomposition = async (chatElement, userMessage) => {
         
         // Show the button after the response is generated
         genCodesBtn.style.display = "block";
+
+        // Pipeline Decomposition task was done with success
+        lastDoneTask = 'pipeline_decomposition';
+
     } catch (error) {
         messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
+        messageElement.textContent = "Oops! Something went wrong. Please try again.";        
+
     } finally {
-        chatbox.scrollTo(0, chatbox.scrollHeight);
+        window.scrollBy(0, chatbox.scrollHeight);
     }
 }
 
@@ -89,12 +94,12 @@ const generateCodeGeneration = async (chatElement) => {
 
     try {
         // Make a POST request to the Flask endpoint
-        const response = await fetch('/generate-response', {
+        const response = await fetch('generate-response', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ "task": "code_generation", "user_message": "" }),
+            body: JSON.stringify({ "task": "first_code_generation", "user_message": "" }),
         });
 
         if (!response.ok) {
@@ -105,7 +110,7 @@ const generateCodeGeneration = async (chatElement) => {
         const data = await response.json();
 
         // Extract the desired fields from each dictionary
-        const extractedFields = data.map(item => {
+        const extractedFields = data.jobs.map(item => {
             return `<div class="sui-a-text as--ml">Job ${item.id} : ${item.name}</div>\n<div class="sui-a-text">Description: ${item.description}\nInput Resources: ${JSON.stringify(item.input_resources)}\nOutput Resources: ${JSON.stringify(item.output_resources)}\n\n<pre><code class="python hljs">${item.code}</code></pre>`;
         });
 
@@ -117,14 +122,17 @@ const generateCodeGeneration = async (chatElement) => {
         
         // Show the button for the API
         createInSaagieBtn.style.display = "block";
+
+        // Code Generation task was done with success
+        lastDoneTask = 'first_code_generation';
         
     } catch (error) {
         messageElement.classList.add("error");
         messageElement.textContent = "Oops! Something went wrong. Please try again.";
-        // Display the genCodesBtn if the creation in Saagie failed
+        // Display the genCodesBtn if the Code Generation failed
         genCodesBtn.style.display = "block";
     } finally {
-        chatbox.scrollTo(0, chatbox.scrollHeight);
+        window.scrollBy(0, chatbox.scrollHeight);
     }
 }
 
@@ -133,7 +141,7 @@ const generateCreationInSaagie = async (chatElement) => {
 
     try {
         // Make a POST request to the Flask endpoint
-        const response = await fetch('/generate-response', {
+        const response = await fetch('generate-response', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -145,42 +153,6 @@ const generateCreationInSaagie = async (chatElement) => {
             throw new Error("Failed to fetch response");
         }
         
-        const reader = response.body.getReader();
-
-        while (true) {
-            const { done, value } = await reader.read();
-
-            if (done) {
-                break;
-            }
-
-            const job = value.response;
-
-            // Extract the desired fields from each job
-            const extractedFields = `<div class="sui-a-text as--ml">Job ${job.id} : ${job.name}</div>\n<div class="sui-a-text">Description: ${job.description}\nInput Resources: ${JSON.stringify(job.input_resources)}\nOutput Resources: ${JSON.stringify(job.output_resources)}\n\n<pre><code class="python hljs">${job.code}</code></pre>`;
-
-            // Append the extracted fields to the chatbox
-            const messageElement = document.createElement("div");
-            messageElement.innerHTML = extractedFields;
-            messageElement.classList.add("incoming");
-
-            // Set the response message from the server
-            chatElement.appendChild(messageElement);
-
-            // Show the button for the API
-            createInSaagieBtn.style.display = "block";
-
-            // Scroll to the latest message
-            chatbox.scrollTo(0, chatbox.scrollHeight);
-        }
-    } catch (error) {
-        messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
-        // Display the createInSaagieBtn if the creation in Saagie failed
-        createInSaagieBtn.style.display = "block";
-    }
-}
-/*
         const data = await response.json();
 
         // Extract the result content from data
@@ -188,20 +160,21 @@ const generateCreationInSaagie = async (chatElement) => {
 
         // Set the response message from the server
         messageElement.innerHTML = messageText;
-        
+
+        // Creation in Saagie task was done with success
+        lastDoneTask = 'creation_in_saagie';
+
     } catch (error) {
         messageElement.classList.add("error");
         messageElement.textContent = "Oops! Something went wrong. Please try again.";
         // Display the createInSaagieBtn if the creation in Saagie failed
         createInSaagieBtn.style.display = "block";
     } finally {
-        chatbox.scrollTo(0, chatbox.scrollHeight);
+        window.scrollBy(0, chatbox.scrollHeight);
     }
 }
-*/
 
-
-const handleChat = async () => {
+const handlePipelineDecomposition = async () => {
     // Hide all buttons
     buttonsInChatbox.forEach(button => {
         button.style.display = "none";
@@ -216,13 +189,12 @@ const handleChat = async () => {
     // Append the user's message to the chatbox
     const outgoingChatLi = createChatLi(userMessage, "outgoing");
     chatbox.appendChild(outgoingChatLi);
-    chatbox.scrollTo(0, chatbox.scrollHeight);
-
 
     // Display "Thinking..." message while waiting for the response
     const incomingChatLi = createChatLi("Thinking...", "incoming");
     chatbox.appendChild(incomingChatLi);
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+    window.scrollBy(0, chatbox.scrollHeight);
+
     
     // Generate the response
     await generatePipelineDecomposition(incomingChatLi, userMessage);
@@ -230,6 +202,7 @@ const handleChat = async () => {
 }
 
 const handleCodeGeneration = async () => {
+
     // Hide all buttons
     buttonsInChatbox.forEach(button => {
         button.style.display = "none";
@@ -243,19 +216,18 @@ const handleCodeGeneration = async () => {
     // Append the user's message to the chatbox
     const outgoingChatLi = createChatLi(userMessage, "outgoing");
     chatbox.appendChild(outgoingChatLi);
-    chatbox.scrollTo(0, chatbox.scrollHeight);
-
 
     // Display "Thinking..." message while waiting for the response
     const incomingChatLi = createChatLi("Thinking...", "incoming");
     chatbox.appendChild(incomingChatLi);
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+    window.scrollBy(0, chatbox.scrollHeight);
     
     // Generate the response
     await generateCodeGeneration(incomingChatLi);
 }
 
 const handleCreationInSaagie = async () => {
+
     // Hide all buttons
     buttonsInChatbox.forEach(button => {
         button.style.display = "none";
@@ -268,7 +240,7 @@ const handleCreationInSaagie = async () => {
     // Display "Thinking..." message while waiting for the response
     const incomingChatLi = createChatLi("Creating the Pipeline & Jobs in Saagie...", "incoming");
     chatbox.appendChild(incomingChatLi);
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+    window.scrollBy(0, chatbox.scrollHeight);
     
     // Generate the response
     await generateCreationInSaagie(incomingChatLi);
@@ -286,13 +258,26 @@ chatInput.addEventListener("keydown", (e) => {
     // width is greater than 800px, handle the chat
     if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
         e.preventDefault();
-        handleChat();
+        //handleChat();
+        // Check the value of lastTask and call the appropriate function
+        if (lastDoneTask === 'pipeline_decomposition' || lastDoneTask === 'creation_in_saagie') {
+            handlePipelineDecomposition();
+        } else if (lastDoneTask === 'first_code_generation' || lastDoneTask === 'iteration_on_code_generation') {
+            handleCodeGeneration();
+        }
     }
 });
 
+
 sendChatBtn.addEventListener("click", () => {
-        handleChat();
+    // Check the value of lastTask and call the appropriate function
+    if (lastDoneTask === 'pipeline_decomposition' || lastDoneTask === 'creation_in_saagie') {
+        handlePipelineDecomposition();
+        } else if (lastDoneTask === 'first_code_generation' || lastDoneTask === 'iteration_on_code_generation') {
+        handleCodeGeneration();
+    }
 });
+
 
 genCodesBtn.addEventListener("click", () => {
     handleCodeGeneration();

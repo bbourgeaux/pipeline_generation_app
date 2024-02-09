@@ -8,10 +8,10 @@ WORKDIR /pipeline-generation-app
 
 # Copy the requirements.txt file and install the Python dependencies
 COPY requirements.txt requirements.txt
-RUN pip3.8 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Copy the entire project into the container
 COPY . .
 
 # Start the Flask app when the container launches
-CMD [ "python3.8", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "python3", "app.py"]
