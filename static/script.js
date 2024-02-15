@@ -1,7 +1,7 @@
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input #send-btn");
-
+const restartBtn = document.querySelector(".restart-btn");
 
 // Create the Generate Codes button outside of the chat messages
 const genCodesBtn = document.createElement("button");
@@ -56,11 +56,11 @@ const generatePipelineDecomposition = async (chatElement, userMessage) => {
             body: JSON.stringify({ "task": "pipeline_decomposition", "user_message": userMessage }),
         });
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch response");
-        }
-
         const data = await response.json();
+
+        if (data.error) {
+            throw new Error(data.error);
+        };
 
         // Extract the desired fields from each dictionary
         //const extractedFields = data.map(item => {
@@ -82,14 +82,15 @@ const generatePipelineDecomposition = async (chatElement, userMessage) => {
 
     } catch (error) {
         messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";        
+        //messageElement.textContent = "Oops! Something went wrong. Please try again.";        
+        messageElement.textContent = error.message;        
 
     } finally {
         window.scrollBy(0, chatbox.scrollHeight);
     }
 }
 
-const generateCodeGeneration = async (chatElement) => {
+const generateCodeGeneration = async (chatElement, userMessage) => {
     const messageElement = chatElement.querySelector("p");
 
     try {
@@ -99,15 +100,14 @@ const generateCodeGeneration = async (chatElement) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ "task": "first_code_generation", "user_message": "" }),
+            body: JSON.stringify({ "task": "first_code_generation", "user_message": userMessage }),
         });
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch response");
-        }
-
-        
         const data = await response.json();
+
+        if (data.error) {
+            throw new Error(data.error);
+        };
 
         // Extract the desired fields from each dictionary
         const extractedFields = data.jobs.map(item => {
@@ -128,7 +128,8 @@ const generateCodeGeneration = async (chatElement) => {
         
     } catch (error) {
         messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
+        //messageElement.textContent = "Oops! Something went wrong. Please try again.";        
+        messageElement.textContent = error.message; 
         // Display the genCodesBtn if the Code Generation failed
         genCodesBtn.style.display = "block";
     } finally {
@@ -148,12 +149,12 @@ const generateCreationInSaagie = async (chatElement) => {
             },
             body: JSON.stringify({ "task": "creation_in_saagie", "user_message": "" }),
         });
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch response");
-        }
         
         const data = await response.json();
+
+        if (data.error) {
+            throw new Error(data.error);
+        };
 
         // Extract the result content from data
         const messageText = `<div class="sui-a-text">${data.result}</div>`;
@@ -166,7 +167,8 @@ const generateCreationInSaagie = async (chatElement) => {
 
     } catch (error) {
         messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
+        //messageElement.textContent = "Oops! Something went wrong. Please try again.";        
+        messageElement.textContent = error.message; 
         // Display the createInSaagieBtn if the creation in Saagie failed
         createInSaagieBtn.style.display = "block";
     } finally {
@@ -207,7 +209,10 @@ const handleCodeGeneration = async () => {
     buttonsInChatbox.forEach(button => {
         button.style.display = "none";
     });
-    userMessage = "Generate the codes please";
+    userMessage = chatInput.value.trim();
+    if (userMessage === "") {
+        userMessage = "Generate the codes please";
+    }
 
     // Clear the input textarea and set its height to default
     chatInput.value = "";
@@ -223,7 +228,7 @@ const handleCodeGeneration = async () => {
     window.scrollBy(0, chatbox.scrollHeight);
     
     // Generate the response
-    await generateCodeGeneration(incomingChatLi);
+    await generateCodeGeneration(incomingChatLi, userMessage);
 }
 
 const handleCreationInSaagie = async () => {
@@ -285,4 +290,25 @@ genCodesBtn.addEventListener("click", () => {
 
 createInSaagieBtn.addEventListener("click", () => {
     handleCreationInSaagie();
+});
+
+// Add event listener to the restart button
+restartBtn.addEventListener("click", async () => {
+    try {
+        // Make a POST request to the Flask endpoint to restart the application
+        const response = await fetch('restart', {
+            method: 'POST'
+        });
+        
+        const data = await response.json();
+
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
+        // If the restart is successful, reload the page
+        window.location.reload();
+    } catch (error) {
+        console.error('Error restarting the app:', error);
+    }
 });
