@@ -1,17 +1,11 @@
 from saagieapi import *
 import os
 
-def create_pipeline_in_saagie(pipeline):
-    # Create the jobs
-    SAAGIE_PLATFORM_URL = os.environ['SAAGIE_PLATFORM_URL']
-    SAAGIE_USER_NAME = os.environ['SAAGIE_USER_NAME']
-    SAAGIE_USER_PASSWORD = os.environ['SAAGIE_USER_PASSWORD']
-    SAAGIE_PROJECT_ID = os.environ['SAAGIE_PROJECT_ID']
-    
+def create_pipeline_in_saagie(pipeline, saagie_platform_url, saagie_project_id, saagie_user_name, saagie_user_password):    
     # Connect to API
-    saagie = SaagieApi.easy_connect(url_saagie_platform=SAAGIE_PLATFORM_URL,
-                                    user=SAAGIE_USER_NAME,
-                                    password=SAAGIE_USER_PASSWORD)
+    saagie = SaagieApi.easy_connect(url_saagie_platform=saagie_platform_url,
+                                    user=saagie_user_name,
+                                    password=saagie_user_password)
     
     from gql import gql
 
@@ -120,7 +114,7 @@ def create_pipeline_in_saagie(pipeline):
         """
 
         auth = BearerAuth(
-            realm=saagie.realm, url=saagie.url_saagie, platform=1, login=SAAGIE_USER_NAME, password=SAAGIE_USER_PASSWORD
+            realm=saagie.realm, url=saagie.url_saagie, platform=1, login=saagie_user_name, password=saagie_user_password
         )
         logging.info("✅ Successfully connected to your platform %s", saagie.url_saagie)
         url_api = f"{saagie.url_saagie}projects/api/platform/1/graphql"
@@ -137,13 +131,15 @@ def create_pipeline_in_saagie(pipeline):
         result = client.execute(document=gql(GQL_CREATE_GRAPH_PIPELINE), variable_values=params, upload_files=False)
         logging.info("✅ Pipeline [%s] successfully created", name)
         return result
+        # Create the jobs
 
+    # Create the jobs
     for job in pipeline['jobs']:
         # Create a Python job inside the project
         job_dict = saagie.jobs.create(
             # job_name=job['name'],
             job_name=f'''[{pipeline['name']}] - {job['name']}''',
-            project_id=SAAGIE_PROJECT_ID,
+            project_id=saagie_project_id,
             file=job['python_file_path'],
             description=job['description'],
             runtime_version='3.9',
@@ -177,7 +173,7 @@ def create_pipeline_in_saagie(pipeline):
         graph_pipeline.add_root_node([job for job in pipeline['jobs'] if job['id'] == root_job_id][0]['saagie_job_node']) # Indicates the pipeline will start with job_node1
         #pipeline_id = saagie.pipelines.create_graph(
         pipeline_id = create_graph(
-            project_id=SAAGIE_PROJECT_ID,
+            project_id=saagie_project_id,
             graph_pipeline=graph_pipeline,
             name=pipeline['name'],
             alias=pipeline['name'].replace(' ','_'),

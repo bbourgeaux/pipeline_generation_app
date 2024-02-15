@@ -14,7 +14,7 @@ from saagieapi_utils import create_pipeline_in_saagie
 
 app = Flask(__name__)
 
-LLM_SERVER_URL = os.environ['LLM_SERVER_URL']
+ENV_VARS = ['LLM_SERVER_URL', 'SAAGIE_PLATFORM_URL', 'SAAGIE_PROJECT_ID', 'SAAGIE_USER_NAME', 'SAAGIE_USER_PASSWORD']
 APP_DIR = os.getcwd()
 
 
@@ -23,6 +23,7 @@ urllib3.disable_warnings(urllib3.exceptions.SubjectAltNameWarning)
 
 previous_messages = []
 pipeline_decompositions = []
+env_var_are_set = False
 
 @app.route('/', methods=['GET', 'POST'])
 def chat():
@@ -32,15 +33,21 @@ def chat():
 def restart():
     global previous_messages
     global pipeline_decompositions
+    global env_var_are_set
 
     previous_messages = []
     pipeline_decompositions = []
+    env_var_are_set = False
 
     return jsonify({"message": "App restarted successfully"})
 
 @app.route('/generate-response', methods=['POST'])
 def generate_response():
+    global env_var_are_set
     try:
+        if not env_var_are_set:
+            env_var_are_set = check_if_env_variables_are_set(ENV_VARS)
+
         task = request.json.get('task', '')
         user_message = request.json.get('user_message', '')
 
@@ -95,7 +102,7 @@ def handle_code_generation(user_message):
 def handle_saagie_creation():
     global pipeline_decompositions
     global previous_messages
-    saagie, jobs, pipeline_id = create_pipeline_in_saagie(pipeline_decompositions[-1])
+    saagie, jobs, pipeline_id = create_pipeline_in_saagie(pipeline_decompositions[-1], SAAGIE_PLATFORM_URL, SAAGIE_PROJECT_ID, SAAGIE_USER_NAME, SAAGIE_USER_PASSWORD)
     previous_messages, pipeline_decompositions = reset_context(previous_messages, pipeline_decompositions)
     return {"result": "The pipeline and its Jobs were successfully created in Saagie."}
 
@@ -114,6 +121,31 @@ def reset_context(previous_messages, pipeline_decompositions):
     previous_messages = []
     pipeline_decompositions = []
     return previous_messages, pipeline_decompositions
+
+def check_if_env_variables_are_set(variables):
+    app.logger.info('Checking if env vars are set')
+    missing_variables = [var for var in variables if var not in os.environ]
+    app.logger.info(missing_variables)
+    if missing_variables:
+        if len(missing_variables) == 1:
+            error_message = f"The following environment variable is not set:\n\n"
+            error_message += '\n'.join(missing_variables)
+            error_message += "\n\nCreate it to make the app work properly."        
+        else:
+            error_message = f'''The following environment variables are not set:\n\n'''
+            error_message += '\n'.join(missing_variables)
+            error_message += "\n\nCreate them to make the app work properly."
+        raise Exception(error_message)
+    else:
+        global LLM_SERVER_URL, SAAGIE_PLATFORM_URL, SAAGIE_PROJECT_ID, SAAGIE_USER_NAME, SAAGIE_USER_PASSWORD
+        LLM_SERVER_URL = os.environ['LLM_SERVER_URL']
+        SAAGIE_PLATFORM_URL = os.environ['SAAGIE_PLATFORM_URL']
+        SAAGIE_PROJECT_ID = os.environ['SAAGIE_PROJECT_ID']
+        SAAGIE_USER_NAME = os.environ['SAAGIE_USER_NAME']
+        SAAGIE_USER_PASSWORD = os.environ['SAAGIE_USER_PASSWORD']
+    
+        return True
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
