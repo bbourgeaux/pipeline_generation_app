@@ -28,7 +28,7 @@
       <header style="display: flex;">
         <!--<h2>Saag-IA</h2>-->
         <!--<div class="sui-a-text as--xxl" >Saag-IA</div>-->
-        <div class="sui-a-text as--xxl" style="width: 100%;text-align: center;">Saag-IA</div>
+        <div class="sui-a-text as--xxl" style="width: 100%;text-align: center;">SAI</div>
         <span class="restart-btn material-symbols-outlined" style="align-self: center;font-size: xxx-large;margin-right: 20px;cursor: pointer;">restart_alt</span>
       </header>
       <ul class="chatbox">
@@ -38,34 +38,57 @@
             <img class="avatar" src="static/saagie_avatar.svg">   
           </span>
           <div id="features-box">
-            <div class="sui-a-text as--xl">Available features</div>
-
-            <div class="sui-a-text as--ml">Create job from its description</div>
-            <div class="sui-m-message as--light">
-                <div class="sui-a-text">1. Describe the job</div>
-                <div class="sui-a-text">2. Review the job code proposal</div>
+            <div class="sui-a-text as--ml">
+              Hi $SAAGIE_USER_NAME,<br>
+              <br>
+            </div>
+            <div class="sui-a-text as--l">
+              I'm SAI, your conversation buddy here to help you create your jobs and pipelines in the Saagie DataOps Platform.<br>
+              I can help you write most of your code, not perfectly but it will be amazing. All you will have to do is to tailor it to your context.<br>
+              If my proposal doesn’t meet your needs, we can discuss a more suitable solution. You lead, I follow, and you always have the final word.<br>
+              <br>
+              The relevance of my skills is restricted to the creation of jobs and pipelines. Beyond that, you may want to talk to someone who is more knowledgeable.<br>
+              <br>
+              Here's more information on how I can help you:<br>
+              <br>
             </div>
 
-            <div class="sui-a-text as--ml">Create a pipeline from its description</div>
+            <div class="sui-a-text as--l">Create a job from its description.</div>
             <div class="sui-m-message as--light">
-                <div class="sui-a-text">1. Describe the pipeline</div>
-                <div class="sui-a-text">2. Review the Pipeline Decomposition proposal</div>
-                <div class="sui-a-text">3. Review the job codes proposal</div>
+                <div class="sui-a-text">1. Describe what you want from your job.
+                </div>
+                <div class="sui-a-text" style="text-indent: 2%;">I'll provide you with the job code you need.
+                </div>
+                <div class="sui-a-text">2. Have a look at my job code suggestion.</div>
             </div>
 
-            <div class="sui-a-text as--ml">Create a pipeline from its structure drawing image</div>
+            <div class="sui-a-text as--l">Create a pipeline from its description.</div>
             <div class="sui-m-message as--light">
-                <div class="sui-a-text">1. Draw the pipeline</div>
-                <div class="sui-a-text">2. Upload your image <span id="upload-img" class="upload-img material-symbols-rounded" style="color: #253c5b; background-color: white;">add_photo_alternate</span></div>
-                <div class="sui-a-text">3. Review the job codes proposal</div>
+                <div class="sui-a-text">1. Describe what you want from your pipeline.
+                </div>
+                <div class="sui-a-text" style="text-indent: 2%;">I'll provide you with a pipeline breakdown and a job coding proposal based on your needs.
+                </div>
+                <div class="sui-a-text">2. Have a look at my pipeline breakdown suggestion.</div>
+                <div class="sui-a-text">3. Have a look at my job code suggestions.</div>
             </div>
-            <!--<div class="feature-title"><span style="color: red;">*</span>If necessary, you can readjust elements by informing Saag-IA of the desired change</div>-->
+
+            <div class="sui-a-text as--l">Create a pipeline from a drawing of its structure.</div>
+            <div class="sui-m-message as--light">
+                <div class="sui-a-text">1. Draw your pipeline.</div>
+                <div class="sui-a-text">2. Upload an image of your drawing in the conversational field <span id="upload-img" class="upload-img material-symbols-rounded" style="color: #253c5b; background-color: white; vertical-align: text-bottom;">add_photo_alternate</span>.
+                </div>
+                <div class="sui-a-text" style="text-indent: 2%;">I'll provide you with the job codes you need.
+                </div>
+                <div class="sui-a-text">3. Have a look at my job code suggestions.</div>
+            </div>
+
           </div>
         </li>
       </ul>
       <div class="chat-input">
-        <span id="upload-img" class="upload-img material-symbols-rounded">add_photo_alternate</span>
-        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+        <span id="upload-img-btn" class="upload-img-btn material-symbols-rounded">add_photo_alternate</span>
+        <input type="file" id="file-upload" style="display: none;">
+        <textarea placeholder="Ask me here to generate the Pipeline or the Job that you need. For example : 'generate a pipeline to train and deploy a sentiment analysis model' or 'give me a data cleaning job'" spellcheck="false" required></textarea>
         <span id="send-btn" class="material-symbols-rounded">send</span>
       </div>
     </div>
